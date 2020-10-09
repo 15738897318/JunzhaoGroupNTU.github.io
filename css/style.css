@@ -371,7 +371,8 @@ members_bottom {
 }
 
 .CD-right {
-	text-align: right;
+	text-align: center;
+	
 }
 
 .button.back {
@@ -2402,7 +2403,7 @@ ol.circle li h3 {
 
 .boxed-font-red {}
 
-.boxed-news {
+.research_part {
 	border-radius: 8px;
 	border: 1px solid #edf2f4;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
@@ -2411,18 +2412,18 @@ ol.circle li h3 {
 	overflow: hidden;
 }
 
-.boxed-news .photo {
+.research_part .photo {
 	float: left;
 	width: 30%;
 }
 
-.boxed-news .photo img {
+.research_part .photo img {
 	max-width: 100%;
 	width: 100%;
 	height: auto;
 }
 
-.boxed-news .content {
+.research_part .content {
 	/*float: right;*/
 	padding: 0 0 0 10px;
 	font-size: 16px
@@ -2430,12 +2431,12 @@ ol.circle li h3 {
 }
 
 @media screen and (max-width: 640px) {
-	.boxed-news {
+	.research_part {
 		padding: 8px;
 	}
 }
 
-.boxed-news .icon {
+.research_part .icon {
 	position: absolute;
 	left: 30px;
 	top: 16px;
@@ -2443,7 +2444,7 @@ ol.circle li h3 {
 }
 
 @media screen and (max-width: 640px) {
-	.boxed-news .icon {
+	.research_part .icon {
 		position: relative;
 		left: 0;
 		top: 0;
@@ -2453,14 +2454,14 @@ ol.circle li h3 {
 	}
 }
 
-.boxed-news h3 {
+.research_part h3 {
 	font-weight: 500;
 	font-size: 26px;
 	font-size: 1.6em;
 	margin: 0 0 5px;
 }
 
-.boxed-news h4 {
+.research_part h4 {
 	font-weight: 500;
 	font-size: 20px;
 	margin: 0 0 5px;
