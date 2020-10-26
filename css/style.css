@@ -1795,7 +1795,7 @@ form input.white[type="reset"] {
 
 .main-navigation {
 	*zoom: 1;
-	float: right;
+	float: left;
 }
 
 .main-navigation:after {
@@ -1868,7 +1868,7 @@ form input.white[type="reset"] {
 	font-size: 13px;
 	font-size: 1.1em;
 	text-transform: uppercase;
-	font-weight: 400;
+	font-weight: 600;
 	padding: 28px 10px 22px;
 	display: block;
 	color: #8e9ca5;
@@ -2058,8 +2058,8 @@ form .hero .slide-content input[type="reset"] {
 
 .page-head .page-title {
 	font-size: 60px;
-	font-size: 3em;
-	font-weight: 300;
+	font-size: 2em;
+	font-weight: 500;
 	margin: 0 0 10px;
 }
 
@@ -2549,7 +2549,7 @@ ol.circle li h3 {
 .boxed-icon h3 {
 	font-weight: 300;
 	font-size: 30px;
-	font-size: 2em;
+	font-size: 3em;
 }
 
 .project-list {
