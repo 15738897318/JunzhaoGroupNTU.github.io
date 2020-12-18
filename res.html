@@ -129,89 +129,106 @@
 Researcher: Andri Ashfahani<br>
 
 The goal of this research is to step-by-step solve complex data stream problems in continual learning environments using deep neural networks (DNNs). There are four articles in this research. Each of these articles presents a new method for data stream learning using DNN. Each of these articles demonstrates the effectiveness of the proposed method in the streaming environment. The proposed methods are applicable and in some cases have been applied to other kinds of tasks, i.e, transfer learning and control algorithms, but this research does not explore such applications.
-<br>
+<br><br>
 1.1.1 Incremental Learning of Deep Neural Networks for Evolving Data Streams
 In the first article, the problem of how to incrementally increase the network capacity in respect to problem complexity is handled. We proposed incremental learning of DNNs for Evolving Data Streams, namely Autonomous Deep Learning (ADL). It characterizes flexible network structure where its hidden nodes and hidden layers can be incrementally constructed from scratch. The network significance (NS) formula derived from bias-variance tradeoff is utilized to control the network complexity. This formula works by monitoring the possible underfitting and overfitting situation of a DNN. To further identify loss of generalization power, Drift detection scenario (DDS) is carried out to signal a real drift situation. This triggers the construction of a new hidden layer. The concept of different depth network structure is put forward to specifically combat the catastrophic forgetting problem because of hidden layer evolution. That is, ADL accommodates every hidden layer output in the final classification decision such that it is able to flexibly retain the constructed knowledge in the previous layers. The learning policy of ADL is depicted in Fig. 1. ADL succeeds at solving classification problems which is simulated under prequential test-then-train protocol. The different depth network structure of ADL, however, is only viable for classification problems and is not fully suitable for other implementation scenarios. Note that ADL is able to put different emphasis on every hidden layer based on the accuracy matrix. In the control system and regression problems, for instance, the accuracy matrix cannot be obtained as those problems usually employ mean squared error (MSE) loss as the objective function. It highlights the importance of Multi-layer Perceptron (MLP)-like network structure as it is more applicable in other scenarios.
-<br>
+<br><br>
 
 Figure 1:The learning policy of ADL
-<br>
+<br><br>
 Ashfahani, Andri, and Mahardhika Pratama. "Autonomous deep learning: Continual learning approach for dynamic environments." In Proceedings of the 2019 SIAM International Conference on Data Mining, pp. 666-674. Society for Industrial and Applied Mathematics, 2019.
 1.1.2 Automatic Construction of Multi-layer Perceptron (MLP) from Streaming Examples 
 In the second article, we explore the strategy to expand the capacity of MLP structure in respect to the problem complexity. We formalize this method as a Neural Network with Dynamically Evolved Capacity (NADINE). The main bottleneck to evolve a MLP structure is the loss of performance whenever a new hidden layer is added. We called this problem a catastrophic forgetting because of structural evolution. The major cause of this is the random initialization of the newly added layer. This problem is mitigated by using a sample and replay mechanism. It is understood that retaining samples and retraining the model should be avoided in the context of data stream learning. Because of that reason, a method to collect important samples, namely adaptive memory, from the streaming data is developed. The collected samples are then used to retrain the network whenever there is a real drift confirmed by DDS. It is worth mentioning that the size of the important samples can be maintained and the retraining process is only conducted whenever there is a new layer. Because every hidden layer is constructed in different concepts, it is important to govern the amount of updates in each hidden layer according to its relevance to the output. The soft-forgetting strategy is proposed to handle this objective where it translates the correlation of each hidden layer and output to independent learning raters for every hidden layer. Finally, the hidden node evolving mechanism utilizes the similar method introduced in ADL. The learning policy of NADINE is presented in Fig. 2, red box indicates the additional learning strategies compared to the previous article. NADINE is tested on both classification and regression problems where it is better than other benchmarks. ADL and NADINE, however, do not fully consider the fact that data come without labels because it has no unsupervised learning mechanism to handle concept drifts exploiting unlabeled samples.
-<br>
+<br><br>
 
 Figure 2:The learning policy of NADINE
-<br>
+<br><br>
 Pratama, Mahardhika, Choiru Za'in, Andri Ashfahani, Yew Soon Ong, and Weiping Ding. "Automatic construction of multi-layer perceptron network from streaming examples." In Proceedings of the 28th ACM International Conference on Information and Knowledge Management, pp. 1171-1180. 2019.
 1.1.3 Incremental Learning of Denoising Autoencoder for Evolving Data Streams
 In the third article, we revisit the concept of denoising autoencoders (DAE) as a generative training mechanism which addresses the random initialization problem of DNNs. From the viewpoint of continual learning in the streaming environment, it encourages DNNs to adapt to concept changes while waiting the labeling process. Being motivated by these facts, we proposed deep evolving denoising autoencoder (DEVDAN). The main feature of DEVDAN lies in the coupled-generative-discriminative-learning phases which enable DEVDAN to exploit both labeled and unlabeled samples. The evolving trait of DEVDAN is carried out in both phases attempting to handle concept changes with or without label. We put forward DAE to handle newly incoming data in an unsupervised manner. In this phase, the evolving mechanism is controlled by the NS formula. Unlike ADL, the NS formula in the generative phase is derived from the squared reconstruction error. After the labeling process is finished, the discriminative phase is executed to improve the generalization power with labeled samples. The hidden nodes growing and pruning mechanism is governed by the same NS formula as for ADL. The two training phases are executed alternately whenever a data batch comes creating a continual learning cycle. The learning policy of DEVDAN can be observed in Fig. 3. DEVDAN offers improvement over ADL in some cases, especially in a situation where the number of labeled data is less than the number of unlabeled data. Nevertheless, DEVDAN does not involve any learning mechanism which specifically addresses the lack of labeled data.
-<br>
+<br><br>
 
 Figure 3:The learning policy of DEVDAN
-<br>
+<br><br>
 Ashfahani, Andri, Mahardhika Pratama, Edwin Lughofer, and Yew-Soon Ong. "DEVDAN: Deep evolving denoising autoencoder." Neurocomputing 390 (2020): 297-314.
-<br>
+<br><br>
 1.1.4 Weakly Supervised Deep Learning Approach in Streaming Environments 
 The general trend of deep learning research changed dramatically during the midst of the work on this thesis with the presentation from Yann LeCun in which he stated that unsupervised, semi-supervised and self-supervised learning problems are the major challenges of AI for the next decade. Semi-supervised and self-supervised learning behaves similarly to supervised learning in which it learns a function from input-output pairs of data. However, they have additional features to address the lack of labeled samples. That is, they can automatically generate labels from the input data. In the viewpoint of evolving data streams, this can be adopted to circumvent one of major limitations in data streams. That is, all true class labels are not immediately available after receiving the data. The third paper in this thesis presents a self-evolving deep neural network, namely Parsimonious Network (ParsNet), as a solution of weakly-supervised data stream problem. A self-labeling strategy with hedge (SLASH) is proposed in which its auto-correction mechanism copes with \textit{the accumulation of mistakes} significantly affecting the model's generalization. ParsNet is developed from a closed-loop configuration of the self-evolving generative and discriminative training processes similar to DEVDAN. The learning policy is illustrated in Fig. 4. When tested on benchmark datasets, ParsNet outperforms prominent algorithms with substantial margin in the high-dimensional data streams and infinite delay simulation protocol.
-<br>
+<br><br>
 
 Figure 4:The learning policy of ParsNet
-<br>
+<br><br>
 Pratama, Mahardhika, Ashfahani, Andri, and Abdul Hady. "Weakly supervised deep learning approach in streaming environments." In 2019 IEEE International Conference on Big Data (Big Data), pp. 1195-1202. IEEE, 2019.
-<br>
+<br><br>
 Conclusions and Future Works.
 Finally, we draw conclusions from several works that have been done. In future work, we are interested in investigating the fully unsupervised for continual learning in data stream environments. The ideas from state-of-the-arts unsupervised learning literature will be incorporated to find the effective algorithm for this scenario. Separately, we are also interested in developing methodologies to incrementally construct convolutional neural networks (CNNs) from scratch. It has a lot of components and hyper-parameters, i.e, convolutional layer, fully connected layer, number of layers, number of filters, filter size etc, making it difficult to construct a CNN for a particular problem. Most methodologies to find the optimal CNN architecture are based on meta-learning and reinforcement learning which require resources. We will try to develop the continual evaluation methods to assess the CNN performance which are then used to control the automatic construction of CNN. It is expected that the result possesses less computational complexity as it is purely built upon a data driven approach which can be executed in a single-pass learning fashion.
 <br><br>
 
 1.2 Computer Vision (CV)
+<br><br>
 
 1.2.1 Autonomous Convolutional Neural Networks (AutoCNN) 
+<br><br>
 
 1.2.2 Computer Vision (CV) for Construction
+<br><br>
 
 1.2.3 Physical rule-based reflection removal with camera calibration
+<br><br>
 
 Researcher: Jinnan Chen
+<br><br>
 
 
 Separating transmission image from a single reflection-contaminated image is an ill-posed computer vision problem which has been studied for a long time in computer vision community. In order to make this problem more trackable, we aim to jointly remove the reflection part and calibrate the orientation of glass and the field of view (FoV) of the camera by using a reflection amplitude coefficient map as a calibration cue. We synthesize the paired training data in a physical rule-based way and thus encode these geometric constraints into the learnable parameters of our image separation network. For camera calibration, different from existing methods, our proposed solution is agnostic to image contents so it is more robust for different real-world scenarios. We proposed a learning-based method that fully exploits all entries of the reflection amplitude coefficient map to estimate the glass plane orientation and FoV of the camera. Besides, we also collect a dataset containing 320 samples as well as their camera parameters for evaluation. The experiments demonstrate that our method not only facilitates the performance of single image reflection removal but also contributes to solve single image camera calibration in such cases. What’s more, we demonstrate our by-product output helps alleviate another ill-posed problem of estimating the panorama from a single image.
- 
+<br><br>
+
 1.3 ?
+<br><br>
 
 Researcher: A
 
+<br><br>
 
 
 1.4 Adversarial Machine Learning
+<br><br>
 
 Researcher: Bai Tao
+<br><br>
 
 
 1.4.1 AI-GAN: Attack-Inspired Generation of Adversarial Examples
+<br><br>
 
 In this paper, we propose Attack-Inspired GAN (AI-GAN) with a different training strategy to solve this problem. AI-GAN is a two-stage method, in which we use projected gradient descent (PGD) attack to inspire the training of GAN in the first stage and apply standard training of GAN in the second stage. Once trained, the Generator can approximate the conditional distribution of adversarial instances and generate imperceptible adversarial perturbations given different target classes. We conduct experiments and evaluate the performance of AI-GAN on MNIST and CIFAR-10. Compared with AdvGAN, AI-GAN achieves higher attack success rates with similar perturbation magnitudes.
+<br><br>
 
 
 
 Bai Tao, Jun Zhao, Jinlin Zhu, Shoudong Han, Jiefeng Chen, and Bo Li. "AI-GAN: Attack-Inspired Generation of Adversarial Examples." arXiv preprint arXiv:2002.02196 (2020).
+<br><br>
  
 1.4.2 Generating Adversarial yet Inconspicuous Patches with a Single Image
 Deep neural networks have been shown vulnerable to adversarial patches, where exotic patterns can result in models wrong prediction. Nevertheless, existing approaches to adversarial patch generation hardly con-sider the contextual consistency between patches and the image background, causing such patches to be easily detected and adversarial attacks to fail. On the other hand, these methods require a large amount of data for training, which is computationally expensive. To overcome these challenges, we propose an approach to generate adversarial yet inconspicuous patches with one single image. In our approach, adversarial patches are produced in a coarse-to-fine way with multiple scales of generators and discriminators. Contextual information is encoded during the Min-Max training to make patches consistent with surroundings. The selection of patch location is based on the perceptual sensitivity of victim models. Through extensive experiments, our approach shows strong attacking ability in both the white-box and black-box setting. Experiments on saliency detection and user evaluation indicate that our adversarial patches can evade human observations, demonstrating the inconspicuousness of our approach. Lastly, we show that our approach preserves the attack ability in the physical world.
 
 
+<br><br>
 
 Luo, Jinqi, Tao Bai, Jun Zhao, and Bo Li. "Generating Adversarial yet Inconspicuous Patches with a Single Image." arXiv preprint arXiv:2009.09774 (2020).
- 
+<br><br>
+
 1.4.3 Feature Distillation With Guided Adversarial Contrastive Learning
 Deep learning models are shown to be vulnerable to adversarial examples. Though adversarial training can enhance model robustness, typical approaches are computationally expensive. Recent works proposed to transfer the robustness to adversarial attacks across different tasks or models with soft labels. Compared to soft labels, the feature contains rich semantic information and holds the potential to be applied to different downstream tasks. In this paper, we propose a novel approach called Guided Adversarial Contrastive Distillation (GACD), to effectively transfer adversarial robustness from teacher to student with features. We first formulate this objective as contrastive learning and connect it with mutual information. With a well-trained teacher model as an anchor, students are expected to extract features similar to the teacher. Then considering the potential errors made by teachers, we propose sample reweighted estimation to eliminate the negative effects from teachers. With GACD, the student not only learns to extract robust features, but also captures structural knowledge from the teacher. By extensive experiments evaluating over popular datasets such as CIFAR-10, CIFAR-100 and STL-10, we demonstrate that our approach can effectively transfer robustness across different models and even different tasks, and achieve comparable or better results than existing methods. Besides, we provide a detailed analysis of various methods, showing that students produced by our approach capture more structural knowledge from teachers and learn more robust features under adversarial attacks.
  
 Bai, Tao, Jinnan Chen, Jun Zhao, Bihan Wen, Xudong Jiang, and Alex Kot. "Feature Distillation With Guided Adversarial Contrastive Learning." arXiv preprint arXiv:2009.09922 (2020).
+<br><br>
 
 1.5 Reinforcement Learning
 See 
 4.1.1 Deep reinforcement learning based intelligent reflecting surface for secure wireless communications
 4.1.2 Intelligent reflecting surface assisted anti-jamming communications: A fast reinforcement learning approach
+<br><br>
 
 1.6 Federated Learning
 1.6.1 Why federated learning is right for you
@@ -226,6 +243,7 @@ NTU is a hotbed for federated learning research.
 Turing Award Winners and Academicians from National Academy of Science/Engineering are working on federated learning. 
 Papers on federated learning have won numerous best paper awards in academic conferences and journals. 
 
+<br><br>
 
 1.6.2 Privacy-Preserving Federated learning-based UAV-enabled wireless networks
 Deploying UAVs as flight BSs is able to flexibly collect data and implement AI model training for ground devices, but it is impractical for a large number of devices to transmit their  raw data to UAV servers due to the privacy concern and limited communication resources for data transmission. Moreover, as the energy capacity, storage, and computational ability of UAVs are limited, it is still challenging for UAVs to process/train a large amount of raw data. In face of the challenges, federated learning (FL) emerges as a promising paradigm aiming to protect device privacy by enabling devices to train AI models locally without sending their raw data to a server. Instead of training AI models at the data server, FL enables devices to execute local training on their own data, which generally uses the gradient descent optimization method.
@@ -248,52 +266,70 @@ Security and Privacy
      Figure 1. A Hierarchical View of City Brain / Smart Nation.
      Figure 2. A View of City Brain / Smart Nation Highlighting Industrial Applications.
      Figure 3. Industrial Applications of City Brain / Smart Nation.
+     <br><br>
 
 
-3. Security / Privacy
-3.1 Adversarial Machine Learning
+3. Security / Privacy<br><br>
+
+3.1 Adversarial Machine Learning<br><br>
+
 See 1.4 Adversarial Machine Learning
-3.2 Secure Communications
+3.2 Secure Communications<br><br>
+
 See 
 4.1.1 Deep reinforcement learning based intelligent reflecting surface for secure wireless communications
 4.1.2 Intelligent reflecting surface assisted anti-jamming communications: A fast reinforcement learning approach
+<br><br>
 
 3.3 Privacy-Preserving Federated Learning
 See 1.6.2 Federated learning-based UAV-enabled wireless networks
+<br><br>
 
 3.4 Differential Privacy for Fog Computing
 Researcher: Mengmeng Yang 
- 
+<br><br>
+
 Secure Hot Path Crowdsourcing with Local Differential Privacy under Fog Computing Architecture
 For a traditional crowdsourcing system, the server interacts with the participants directly after receiving the tasks from the requester. However, offloading the data to the cloud introduces unforeseeable delay and heavy communication burden, especially when multiple interactions are needed. A better alternative solution is to take advantage of the nearby infrastructures or devices to process the data and send the processed data back to the cloud. This process is called edge computing, also known as fog computing. Though edge computing enhances crowdsourcing, the collected data can also be used by the adversary to make sensitive inferences. The traditional solutions rely on the premise that the fog node is trusted and a series of privacy strategies are performed by the fog node on top of the user’s real data. However, the fog node may not be trusted either. Therefore, the information needs to be protected locally by perturbing it before it leaves the user’s devices. In this paper, we consider the location privacy problem for hot path statistics in the crowdsourcing system under fog computing architecture. To provide a much more accurate statistic while preserving the user’s location information locally, we proposed a novel solution that combines both local differential privacy technology and secret sharing technology.
 
+<br><br>
 
 Framework 
 (1)The proposed method can achieve a much higher accuracy even if the privacy budget is quite small. The error of the proposed method only comes from the sampling processes (e.g. worker selection and node selection), which are controlled by privacy budget and sample rate respectively. Even when the privacy budget is very small, we can still expect to have around half of the participating workers to contribute to the statistical count by adjusting the parameter. (2)The proposed method can achieve a good performance even when a limited number of workers participate. This is because all the selected workers report the true value through secret sharing instead of a perturbed value to the fog node. As we mentioned, the error only comes from the sampling processes, which are independent of the data dimension and have a much smaller statistical variance.
 
 
 
+<br><br>
 
 
 4. 6G Wireless Networks (including AI and Intelligent Reflecting Surfaces)
+<br><br>
 
 Researcher: Yang Helin  
+<br><br>
 
-4.1 Intelligent Reflecting Surfaces (IRS) for 6G Wireless Networks
+4.1 Intelligent Reflecting Surfaces (IRS) for 6G Wireless Networks<br><br>
+
 A new paradigm, called intelligent reflecting surface (IRS), has been proposed as a promising technique to achieve high spectrum efficiency and energy efficiency, and enhance secrecy rate in the fifth generation (5G) and beyond wireless communication systems. In particular, IRS is a uniform planar array which is comprised of a number of low-cost passive reflecting elements, where each of elements adaptively adjusts its reflection amplitude and/or phase to control the strength and direction of the electromagnetic wave, hence IRS is capable of enhancing and/or weakening the reflected signals at different users.  As a result, the reflected signal by the IRS can increase the received signal at legitimate users while suppressing the signal at the eavesdroppers. Hence, from the PLS perspective, some innovative studies have been recently devoted to performance optimization for IRS-aided secure communications.
 4.1.1 Deep reinforcement learning based intelligent reflecting surface for secure wireless communications
 We consider an IRS-aided secure communication system, as shown in Fig. 1, where the BS is equipped with N antennas to serve K single-antenna legitimate mobile users (MUs) in the presence of M single-antenna eavesdroppers. An IRS with L reflecting elements is deployed in the system to assist secure wireless communications from the BS to the MUs. The IRS is equipped with a controller to coordinate with the BS. For the ease of practical implementation, the maximal reflection without power loss at the IRS is considered since the reflecting elements are designed to maximize the reflected desired signal power to the MUs. In addition, unauthorized eavesdroppers aim to eavesdrop any of the data streams of the MUs.  Hence, the use of reflecting beamforming at IRS is also investigated to improve the achievable secrecy rate at the MUs while suppressing the wiretapped data rate at the eavesdroppers. In addition, we explicitly state that the eavesdroppers cannot collide.  
- 
+<br><br>
+
 Fig. 1. IRS-aided secure communication under multiple eavesdroppers. 
+<br><br>
 
 Considering the fact that the IRS-aided secure communication system has high-dimensional and high-dynamical characteristics according to the system state that is defined in and uncertain CSI, we propose a deep PDS-PER learning based secure beamforming approach, as shown in Fig. 2, where PDS-learning and PER mechanisms are utilized to enable the learning agent to learn and adapt faster in dynamic environments. In detail, the agent utilizes the observed state (i.e, CSI, previous secrecy rate, QoS satisfaction level), the feedback reward from the environment as well as the historical experience from the replay buffer to train its learning model. After that, the agent employs the trained model to make decision beamforming matrices based on its learned policy. The procedures of the proposed learning based secure beamforming are provided in the following subsections.  
- 
+<br><br>
+
 Fig. 2. Deep PDS-PER learning based beamforming for IRS-aided secure communications.
- 
+<br><br>
+
 In Fig. 3, the achievable secrecy rate and QoS satisfaction level performance of all approaches are evaluated through changing the IRS elements. For the secure beamforming approaches assisted by the IRS, their achievable secrecy rates and QoS satisfaction levels significantly increase with the number of the IRS elements. The improvement results from the fact that more IRS elements, more signal paths and signal power can be reflected by the IRS to improve the received SINR at the MUs but to decrease the received SINR at the eavesdroppers. In addition, the performance of the approach without the IRS remains constant under the different numbers of the IRS elements. From Fig. 3(a), it is found that the secrecy rate of the proposed learning approach is higher than those of the Baseline 1 and DQN approaches, especially, their performance gap also obviously increases with $L$, this is because that with more reflecting elements at the IRS, the proposed deep PDS-PER learning based secure communication approach becomes more flexible for optimal phase shift (reflecting beamforming) design and hence achieves higher gains. In addition, from Fig. 3(b) compared with the Baseline 1 and DQN approaches, as the reflecting elements at the IRS increases, we observe that the proposed learning approach is the first one who attains 100% QoS satisfaction level. These superior achievements are based on the particular design of the QoS-aware reward function for secure communication.
  
+<br><br>
 
 Fig. 3. Performance comparisons versus the number of IRS elements.
+<br><br>
  
 4.1.2 Intelligent reflecting surface assisted anti-jamming communications: A fast reinforcement learning approach
 	As shown in Fig. 4, this paper considers an IRS-assisted communication system, which consists of one BS with N antennas and K single-antenna legitimate user equipments (UEs) located at the cell-edge. The IRS composed of M reflecting elements is deployed to provide additional communication links so as to improve the performance for the UEs over a given frequency band. The direct communication links of cell-edge UEs may suffer high signal attenuation and these links are severely blocked by obstacles when these UEs are located in dead zones. In addition, as illustrated in Fig. 4, a malicious (or unfriendly) multi-antenna jammer is located near the  UEs who attempt to interfere with the  transmissions by sending faked or replayed jamming signal for the UEs via  antennas, in order to degrade the  communication performance. In this case, deploying the IRS can effectively enhance the desired signal power and mitigate the jamming interference generated from the jammer by designing the reflecting beamforming at the IRS.  
@@ -312,7 +348,8 @@ Fig. 6 Performance comparisons versus the number of IRS elements.
 [2]   Helin Yang, Yang Zhao, Zehui Xiong, Jun Zhao, Dusit Niyato, Kwok-Yan Lam, and Qingqing Wu, “Deep reinforcement learning based intelligent reflecting surface for secure wireless communications” IEEE Global Communications Conference (GLOBECOM), 2020, Taipei, Taiwan, Dec. 2020. (Accepted).
 [3]   Helin Yang, Zehui Xiong, Jun Zhao, Dusit Niyato, Qingqing Wu, Massimo Tornatore, and Stefano Secci, “Intelligent reflecting surface assisted anti-jamming communications based on reinforcement learning” IEEE Global Communications Conference (GLOBECOM), Taipei, Taiwan, Dec. 2020. (Accepted).
 [4] Helin Yang, Zehui Xiong, Jun Zhao, Dusit Niyato, Qingqing Wu, and H. Vincent Poor, “Intelligent reflecting surface assisted anti-jamming communications: A fast reinforcement learning approach,” IEEE Transactions on Wireless Communications. (Major revision) https://arxiv.org/abs/2004.12539.
- 
+<br><br>
+
 4.2 Artificial Intelligence-Enabled Intelligent 6G Networks 
  	In order to support near-instant and seamless super-connectivity, an integrated space–air–ground–underwater network (ISAGUN) will be the core potential architecture of 6G networks, as shown in Fig. 7, where ISAGUN mainly consists of the following four tiers:
 ·    Space-network tier deploys low Earth orbit, medium Earth orbit, and geostationary Earth orbit satellites to provide orbit or space services for unserved areas which are not covered by ground networks.
@@ -338,6 +375,7 @@ Fig. 10. Performance comparisons with different total numbers of devices.
  
 [5] Helin Yang, Arokiaswami Alphones, Zehui Xiong, Dusit Niyato, and Jun Zhao, “Artificial intelligence-enabled intelligent 6G networks”, IEEE Network. (Accepted) DOI:  10.1109/MNET.011.2000195.
 [6] Helin Yang, Zehui Xiong, Jun Zhao, Dusit Niyato, Chau Yuen, and Ruilong Deng, “Deep reinforcement learning based massive access management for ultra-reliable low-latency communications,” IEEE Transactions on Wireless Communications. (Major revision). https://arxiv.org/abs/ 2002.08743.
+<br><br>
 
 4.3 Privacy-Preserving Federated Learning for Wireless Networks
 See 1.6.2 Privacy-Preserving Federated Learning for Wireless Networks
