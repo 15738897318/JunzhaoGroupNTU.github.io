@@ -120,49 +120,49 @@
 1.6 Federated Learning<br>
 2. City Brain / Smart Nation: Internet of Things (IoT), Cloud/Edge/Fog Computing<br>
 3. Security / Privacy<br>
-4. 6G Wireless Networks (including AI and Intelligent Reflecting Surfaces)<br>
+4. 6G Wireless Networks (including AI and Intelligent Reflecting Surfaces)<br><br>
 
-1. Artificial Intelligence (AI)
+1. Artificial Intelligence (AI)<br><br>
 
-1.1 Autonomous Deep Learning for Continual Learning in Complex Data Stream Environment
+1.1 Autonomous Deep Learning for Continual Learning in Complex Data Stream Environment<br><br>
 
-Researcher: Andri Ashfahani
+Researcher: Andri Ashfahani<br>
 
 The goal of this research is to step-by-step solve complex data stream problems in continual learning environments using deep neural networks (DNNs). There are four articles in this research. Each of these articles presents a new method for data stream learning using DNN. Each of these articles demonstrates the effectiveness of the proposed method in the streaming environment. The proposed methods are applicable and in some cases have been applied to other kinds of tasks, i.e, transfer learning and control algorithms, but this research does not explore such applications.
-
+<br>
 1.1.1 Incremental Learning of Deep Neural Networks for Evolving Data Streams
 In the first article, the problem of how to incrementally increase the network capacity in respect to problem complexity is handled. We proposed incremental learning of DNNs for Evolving Data Streams, namely Autonomous Deep Learning (ADL). It characterizes flexible network structure where its hidden nodes and hidden layers can be incrementally constructed from scratch. The network significance (NS) formula derived from bias-variance tradeoff is utilized to control the network complexity. This formula works by monitoring the possible underfitting and overfitting situation of a DNN. To further identify loss of generalization power, Drift detection scenario (DDS) is carried out to signal a real drift situation. This triggers the construction of a new hidden layer. The concept of different depth network structure is put forward to specifically combat the catastrophic forgetting problem because of hidden layer evolution. That is, ADL accommodates every hidden layer output in the final classification decision such that it is able to flexibly retain the constructed knowledge in the previous layers. The learning policy of ADL is depicted in Fig. 1. ADL succeeds at solving classification problems which is simulated under prequential test-then-train protocol. The different depth network structure of ADL, however, is only viable for classification problems and is not fully suitable for other implementation scenarios. Note that ADL is able to put different emphasis on every hidden layer based on the accuracy matrix. In the control system and regression problems, for instance, the accuracy matrix cannot be obtained as those problems usually employ mean squared error (MSE) loss as the objective function. It highlights the importance of Multi-layer Perceptron (MLP)-like network structure as it is more applicable in other scenarios.
- 
+<br>
 
 Figure 1:The learning policy of ADL
-
+<br>
 Ashfahani, Andri, and Mahardhika Pratama. "Autonomous deep learning: Continual learning approach for dynamic environments." In Proceedings of the 2019 SIAM International Conference on Data Mining, pp. 666-674. Society for Industrial and Applied Mathematics, 2019.
 1.1.2 Automatic Construction of Multi-layer Perceptron (MLP) from Streaming Examples 
 In the second article, we explore the strategy to expand the capacity of MLP structure in respect to the problem complexity. We formalize this method as a Neural Network with Dynamically Evolved Capacity (NADINE). The main bottleneck to evolve a MLP structure is the loss of performance whenever a new hidden layer is added. We called this problem a catastrophic forgetting because of structural evolution. The major cause of this is the random initialization of the newly added layer. This problem is mitigated by using a sample and replay mechanism. It is understood that retaining samples and retraining the model should be avoided in the context of data stream learning. Because of that reason, a method to collect important samples, namely adaptive memory, from the streaming data is developed. The collected samples are then used to retrain the network whenever there is a real drift confirmed by DDS. It is worth mentioning that the size of the important samples can be maintained and the retraining process is only conducted whenever there is a new layer. Because every hidden layer is constructed in different concepts, it is important to govern the amount of updates in each hidden layer according to its relevance to the output. The soft-forgetting strategy is proposed to handle this objective where it translates the correlation of each hidden layer and output to independent learning raters for every hidden layer. Finally, the hidden node evolving mechanism utilizes the similar method introduced in ADL. The learning policy of NADINE is presented in Fig. 2, red box indicates the additional learning strategies compared to the previous article. NADINE is tested on both classification and regression problems where it is better than other benchmarks. ADL and NADINE, however, do not fully consider the fact that data come without labels because it has no unsupervised learning mechanism to handle concept drifts exploiting unlabeled samples.
- 
+<br>
 
 Figure 2:The learning policy of NADINE
-
+<br>
 Pratama, Mahardhika, Choiru Za'in, Andri Ashfahani, Yew Soon Ong, and Weiping Ding. "Automatic construction of multi-layer perceptron network from streaming examples." In Proceedings of the 28th ACM International Conference on Information and Knowledge Management, pp. 1171-1180. 2019.
 1.1.3 Incremental Learning of Denoising Autoencoder for Evolving Data Streams
 In the third article, we revisit the concept of denoising autoencoders (DAE) as a generative training mechanism which addresses the random initialization problem of DNNs. From the viewpoint of continual learning in the streaming environment, it encourages DNNs to adapt to concept changes while waiting the labeling process. Being motivated by these facts, we proposed deep evolving denoising autoencoder (DEVDAN). The main feature of DEVDAN lies in the coupled-generative-discriminative-learning phases which enable DEVDAN to exploit both labeled and unlabeled samples. The evolving trait of DEVDAN is carried out in both phases attempting to handle concept changes with or without label. We put forward DAE to handle newly incoming data in an unsupervised manner. In this phase, the evolving mechanism is controlled by the NS formula. Unlike ADL, the NS formula in the generative phase is derived from the squared reconstruction error. After the labeling process is finished, the discriminative phase is executed to improve the generalization power with labeled samples. The hidden nodes growing and pruning mechanism is governed by the same NS formula as for ADL. The two training phases are executed alternately whenever a data batch comes creating a continual learning cycle. The learning policy of DEVDAN can be observed in Fig. 3. DEVDAN offers improvement over ADL in some cases, especially in a situation where the number of labeled data is less than the number of unlabeled data. Nevertheless, DEVDAN does not involve any learning mechanism which specifically addresses the lack of labeled data.
- 
+<br>
 
 Figure 3:The learning policy of DEVDAN
-
+<br>
 Ashfahani, Andri, Mahardhika Pratama, Edwin Lughofer, and Yew-Soon Ong. "DEVDAN: Deep evolving denoising autoencoder." Neurocomputing 390 (2020): 297-314.
-
+<br>
 1.1.4 Weakly Supervised Deep Learning Approach in Streaming Environments 
 The general trend of deep learning research changed dramatically during the midst of the work on this thesis with the presentation from Yann LeCun in which he stated that unsupervised, semi-supervised and self-supervised learning problems are the major challenges of AI for the next decade. Semi-supervised and self-supervised learning behaves similarly to supervised learning in which it learns a function from input-output pairs of data. However, they have additional features to address the lack of labeled samples. That is, they can automatically generate labels from the input data. In the viewpoint of evolving data streams, this can be adopted to circumvent one of major limitations in data streams. That is, all true class labels are not immediately available after receiving the data. The third paper in this thesis presents a self-evolving deep neural network, namely Parsimonious Network (ParsNet), as a solution of weakly-supervised data stream problem. A self-labeling strategy with hedge (SLASH) is proposed in which its auto-correction mechanism copes with \textit{the accumulation of mistakes} significantly affecting the model's generalization. ParsNet is developed from a closed-loop configuration of the self-evolving generative and discriminative training processes similar to DEVDAN. The learning policy is illustrated in Fig. 4. When tested on benchmark datasets, ParsNet outperforms prominent algorithms with substantial margin in the high-dimensional data streams and infinite delay simulation protocol.
- 
+<br>
 
 Figure 4:The learning policy of ParsNet
-
+<br>
 Pratama, Mahardhika, Ashfahani, Andri, and Abdul Hady. "Weakly supervised deep learning approach in streaming environments." In 2019 IEEE International Conference on Big Data (Big Data), pp. 1195-1202. IEEE, 2019.
-
+<br>
 Conclusions and Future Works.
 Finally, we draw conclusions from several works that have been done. In future work, we are interested in investigating the fully unsupervised for continual learning in data stream environments. The ideas from state-of-the-arts unsupervised learning literature will be incorporated to find the effective algorithm for this scenario. Separately, we are also interested in developing methodologies to incrementally construct convolutional neural networks (CNNs) from scratch. It has a lot of components and hyper-parameters, i.e, convolutional layer, fully connected layer, number of layers, number of filters, filter size etc, making it difficult to construct a CNN for a particular problem. Most methodologies to find the optimal CNN architecture are based on meta-learning and reinforcement learning which require resources. We will try to develop the continual evaluation methods to assess the CNN performance which are then used to control the automatic construction of CNN. It is expected that the result possesses less computational complexity as it is purely built upon a data driven approach which can be executed in a single-pass learning fashion.
-
+<br><br>
 
 1.2 Computer Vision (CV)
 
