@@ -224,22 +224,30 @@ Deep learning models are shown to be vulnerable to adversarial examples. Though 
 Bai, Tao, Jinnan Chen, Jun Zhao, Bihan Wen, Xudong Jiang, and Alex Kot. "Feature Distillation With Guided Adversarial Contrastive Learning." arXiv preprint arXiv:2009.09922 (2020).
 <br><br>
 
-1.5 Reinforcement Learning
-See 
-4.1.1 Deep reinforcement learning based intelligent reflecting surface for secure wireless communications
+1.5 Reinforcement Learning<br><br>
+
+See <br>
+4.1.1 Deep reinforcement learning based intelligent reflecting surface for secure wireless communications<br><br>
+
 4.1.2 Intelligent reflecting surface assisted anti-jamming communications: A fast reinforcement learning approach
 <br><br>
 
-1.6 Federated Learning
-1.6.1 Why federated learning is right for you
-Federated learning is a booming field, both in academia and in industry!
-Federated learning was invented by Google in 2017. Federated learning will have impacts similar to those of other Google inventions: TensorFlow, MapReduce, etc.
+1.6 Federated Learning <br><br>
+
+1.6.1 Why federated learning is right for you<br><br>
+
+Federated learning is a booming field, both in academia and in industry!<br><br>
+
+Federated learning was invented by Google in 2017. Federated learning will have impacts similar to those of other Google inventions: TensorFlow, MapReduce, etc.<br>
 Many high-tech companies are following Google to do federated learning. These companies include Apple, Amazon, Facebook, Microsoft, Alibaba, Tencent, WeBank, ByteDance, SenseTime …
+<br>
 The first academic paper on federated learning, published by Google in 2017, received over 1000 citations in July 2020:
-http://proceedings.mlr.press/v54/mcmahan17a.html  
+<a>http://proceedings.mlr.press/v54/mcmahan17a.html  </a>
 58 big names in academia (MIT, Stanford, CMU, Berkeley, Princeton, Cornell, NTU, UIUC, EPFL) and industry (Google, WeBank) together uploaded a 100-page paper to arXiv in December 2019: https://arxiv.org/abs/1912.04977
 You know federated learning is hot when you see this. Nothing like this happened for other topics before. This paper has been cited for over 100 times in less than 6 months.
 NTU is a hotbed for federated learning research. 
+<br><br>
+
 Turing Award Winners and Academicians from National Academy of Science/Engineering are working on federated learning. 
 Papers on federated learning have won numerous best paper awards in academic conferences and journals. 
 
@@ -247,17 +255,28 @@ Papers on federated learning have won numerous best paper awards in academic con
 
 1.6.2 Privacy-Preserving Federated learning-based UAV-enabled wireless networks
 Deploying UAVs as flight BSs is able to flexibly collect data and implement AI model training for ground devices, but it is impractical for a large number of devices to transmit their  raw data to UAV servers due to the privacy concern and limited communication resources for data transmission. Moreover, as the energy capacity, storage, and computational ability of UAVs are limited, it is still challenging for UAVs to process/train a large amount of raw data. In face of the challenges, federated learning (FL) emerges as a promising paradigm aiming to protect device privacy by enabling devices to train AI models locally without sending their raw data to a server. Instead of training AI models at the data server, FL enables devices to execute local training on their own data, which generally uses the gradient descent optimization method.
+<br><br>
 
 Fig. 11. Federated learning-based UAV-enabled wireless networks.
- 
+<br><br>
+
 In the FL instance, as illustrated in Fig. 11, each device has its own personal dataset and it is willing to upload a part of inflammation (i.e., AI model parameters) to its associated UAV server in a privacy-preserving manner. In addition, devices involved in a common computing task (e.g., training a classification model) are more likely to work with others together to finish the task collaboratively, by adopting AI techniques. These devices will update their own local AI model parameters to associated UAV servers for global model aggregation. Each device processes the local model training based on its local raw dataset without sharing the raw data with other devices, to protect the privacy of data providers. After completing local model training, each device will send its local model parameters to its associated UAV server by the uplink communication channel, and the corresponding UAV server aggregates the local parameters from the selected devices before broadcasting the aggregated global parameters to the devices by the downlink communication channel.
 In Fig. 12, we compare the accuracy performance versus the number of global rounds and wall-clock time for different FL approaches, where several devices are set as low-quality participants. The low-quality participants are with low communication and computation capabilities, and even have low-quality training parameters. From Fig. 12(a), we can observe that both the AFL and SFL approaches with device selection require about 25 global rounds to achieve an accuracy of 90.0%, and both of them have similar convergence speed and accuracy performance. However, at each global round, SFL has to wait until all the selected devices respond, while AFL only needs a number of selected devices' response to move on to the next round which decreases the aggregation completion time during the learning process as shown in Fig. 12(b). In addition, both the AFL and SFL approaches with device selection achieve higher accuracy and convergence speed than those of the AFL approach without device selection. The results illustrate that the proposed device selection scheme can prevent low-quality devices from affecting the learning accuracy, and enhances the system performance significantly. 
  
-  
+<br><br>
+ 
 Fig. 12. Accuracy comparison versus (a) number of global communication rounds and (b) wall-clock time.
-From Fig. 12(b), we can see that the accuracy of all approaches improves with the increase of the wall-clock time. However, by comparing different approaches, the proposed AFL approach with device selection outperforms the other two approaches in terms of both the convergence speed and accuracy. The reason lies in the fact that the AFL approach without device selection may enable the low-quality devices to participate in the FL model aggregation, where the low-quality model parameters decrease the overall accuracy, as well as devices with low communication and computation capacities need more time to complete the model aggregation. In addition, the SFL approach with device selection has to wait for all selected devices to complete their local model parameters update, among which there may require long computation time due to low computation capability. Consequently, each global communication round of the SFL approach with device selection requires more time to finish model aggregation, and hence its accuracy performance slowly improves with the increase of wall-clock time. The results from Fig. 12 demonstrate that the proposed AFL approach with device selection is capable of improving both the convergence speed and aggregation accuracy performance.  
+<br><br>
+
+From Fig. 12(b), we can see that the accuracy of all approaches improves with the increase of the wall-clock time. However, by comparing different approaches, the proposed AFL approach with device selection outperforms the other two approaches in terms of both the convergence speed and accuracy. The reason lies in the fact that the AFL approach without device selection may enable the low-quality devices to participate in the FL model aggregation, where the low-quality model parameters decrease the overall accuracy, as well as devices with low communication and computation capacities need more time to complete the model aggregation. In addition, the SFL approach with device selection has to wait for all selected devices to complete their local model parameters update, among which there may require long computation time due to low computation capability. Consequently, each global communication round of the SFL approach with device selection requires more time to finish model aggregation, and hence its accuracy performance slowly improves with the increase of wall-clock time. The results from Fig. 12 demonstrate that the proposed AFL approach with device selection is capable of improving both the convergence speed and aggregation accuracy performance.
+<br><br>
+
 [7] Helin Yang, Zehui Xiong, Jun Zhao, Kwo Yan Lam, Sumei Sun, and Liang Xiao, “Privacy-Preserving Federated Learning for UAV-Enabled Networks: Learning-Based Joint Scheduling and Resource Management,” submitted to IEEE Journal on Selected Areas in Communications by Oct. 2020.  
+<br><br>
+
 2. City Brain / Smart Nation: Internet of Things (IoT), Cloud/Edge/Fog Computing
+<br><br>
+
 Artificial Intelligence of Things (AIoT) with federated learning, deep learning, reinforcement learning, adversarial machine learning, etc.
 Internet of Things (IoT)
 Cloud/Edge/Fog Computing
