@@ -1857,7 +1857,9 @@ form input.white[type="reset"] {
 
 .main-navigation .menu .menu-item {
 	float: left;
-	font-size: 1em;
+	font-size: 14px;
+
+
 }
 
 .main-navigation .menu .menu-item.home a {
@@ -1880,14 +1882,16 @@ form input.white[type="reset"] {
 
 .main-navigation .menu .menu-item.current-menu-item a,
 .main-navigation .menu .menu-item:hover a {
-	color: #003478;
-	border-bottom: 3px solid #003478;
+	color: #016648;
+	border-bottom: 3px solid #016648;
+
 }
 
 .mobile-navigation {
 	padding: 30px;
 	clear: both;
 	display: none;
+	
 }
 
 @media screen and (min-width: 1200px) {
