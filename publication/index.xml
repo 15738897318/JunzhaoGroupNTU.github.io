@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publication on Jun Zhao&#39;s Group</title>
+    <link>/publication/</link>
+    <description>Recent content in Publication on Jun Zhao&#39;s Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Jan 2023 19:00:12 +0800</lastBuildDate><atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journal</title>
+      <link>/publication/journal/</link>
+      <pubDate>Mon, 30 Jan 2023 02:32:13 +0800</pubDate>
+      
+      <guid>/publication/journal/</guid>
+      <description>2023 [1] T. Zhang, K.-Y. Lam, J. Zhao, F. Li, H. Han, and N. Jamil, “Enhancing Federated Learning with spectrum allocation optimization and device selection,” IEEE/ACM Transactions on Networking, 2023.
+[2] T. Bai, J. Zhao, and B. Wen, “Guided Adversarial Contrastive Distillation for Robust Students,” IEEE Transactions on Information Forensics and Security, 2023.
+[3] H.-Q. Xu et al., “A strategy learning framework for particle swarm optimization algorithm,” Information Sciences, vol. 619, pp.</description>
+    </item>
+    
+    <item>
+      <title>Conference</title>
+      <link>/publication/conference/</link>
+      <pubDate>Sun, 29 Jan 2023 22:08:21 +0800</pubDate>
+      
+      <guid>/publication/conference/</guid>
+      <description>2023 [1] X. Zhou, Y. Li, and J. Zhao, “Resource Allocation of Federated Learning Assisted Mobile Augmented Reality System in the Metaverse,” in 2023 IEEE International Conference on Communications (ICC), 2023.
+[2] Y. Zhou, Y. Liu, Q. Wu, and J. Zhao, “Traffic Aware Power Saving Communication Assisted By Double-Faced Active RIS,” in 2023 IEEE International Conference on Communications (ICC), 2023.
+[3] W. YU, T. J. Chua, and J. Zhao, “Virtual Reality in Metaverse over Wireless Networks with User-centered Deep Reinforcement Learning,” in 2023 IEEE International Conference on Communications (ICC), 2023.</description>
+    </item>
+    
+  </channel>
+</rss>
